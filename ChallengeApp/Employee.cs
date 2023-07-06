@@ -11,10 +11,67 @@
             Name = firstName;
             Surname = lastName;
         }
+
         public void AddGrade(float grade)
         {
-            this.grade.Add(grade);
+            if (grade > 0 && grade <= 100)
+            {
+                this.grade.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine($"  Wartość: {grade} jest spoza zakresu ocen!");
+            }
         }
+
+        public void AddGrade(double grade)
+        {
+            if (float.MaxValue >= grade && float.MinValue <= grade)
+            { 
+                AddGrade((float)grade);
+            }
+            else
+            {
+                Console.WriteLine("  Przekroczenie zasięgu FLOAT! ==> Wartość spoza zakresu ocen!");
+            }
+        }
+        public void AddGrade(long grade)
+        {
+            if (float.MaxValue >= grade || float.MinValue <= grade)
+            {
+                AddGrade((float)grade);
+            }
+            else
+            {
+                Console.WriteLine("  Przekroczenie zasięgu FLOAT! ==> Wartość spoza zakresu ocen!");
+            }
+        }
+
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine($"  Wpisana ocena: {grade} nie jest liczbą!");
+            }
+        }
+
+        public void AddGrade(char grade)
+        {
+            int result = (int)grade;
+            if (result >=0 && result <= 9)
+            {
+                AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine($"  Wpisana ocena: {grade} nie jest liczbą!");
+            }
+        }
+
         public Statistics GetStatistics()
         {
             Statistics stats = new Statistics();
