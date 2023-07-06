@@ -2,15 +2,18 @@
 
 Employee user1 = new Employee("Sam", "Serious");
 
-user1.AddGrade(double.MaxValue);
 user1.AddGrade(2.09f);
 user1.AddGrade(3.33);
-user1.AddGrade("ab");
 user1.AddGrade("12");
-user1.AddGrade('k');
-user1.AddGrade(123.45);
 
-Statistics statistics = user1.GetStatistics();
+List<Statistics> statistics = new List<Statistics>();
+statistics.Add(user1.GetStatistics()); // tu zastosowano foreach
+statistics.Add(user1.GetStatisticsWithFor());
+statistics.Add(user1.GetStatisticsWithDoWhile());
+statistics.Add(user1.GetStatisticsWithWhile());
 
 Console.WriteLine($"\n\timię: {user1.Name}\n\tnazwisko: {user1.Surname} ");
-Console.WriteLine($"\nMaksymalna ocena: {statistics.Max}; Minimalna ocena: {statistics.Min}; Średnia ocen: {statistics.Average:N2}");
+foreach(Statistics stat in statistics)
+{
+    Console.WriteLine($"\nMaksymalna ocena: {stat.Max}; Minimalna ocena: {stat.Min}; Średnia ocen: {stat.Average:N2}");
+}

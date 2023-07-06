@@ -89,5 +89,61 @@
             stats.Score = grade.Sum();
             return stats;
         }
+
+        public Statistics GetStatisticsWithFor()
+        {
+            Statistics stats = new Statistics();
+            stats.Max = float.MinValue;
+            stats.Min = float.MaxValue;
+            stats.Average = 0;
+
+            for (int i = 0; i < this.grade.Count; i++)
+            {
+                stats.Average += grade[i];
+                stats.Max = Math.Max(grade[i], stats.Max);
+                stats.Min = Math.Min(grade[i], stats.Min);
+            }
+            stats.Average /= this.grade.Count;
+            stats.Score = grade.Sum();
+            return stats;
+        }
+
+        public Statistics GetStatisticsWithDoWhile()
+        {
+            Statistics stats = new Statistics();
+            stats.Max = float.MinValue;
+            stats.Min = float.MaxValue;
+            stats.Average = 0;
+            int i = this.grade.Count-1;
+            do
+            {
+                stats.Average += grade[i];
+                stats.Max = Math.Max(grade[i], stats.Max);
+                stats.Min = Math.Min(grade[i], stats.Min);
+                i--;
+            } while (i >= 0);
+            stats.Average /= this.grade.Count;
+            stats.Score = grade.Sum();
+            return stats;
+        }
+
+        public Statistics GetStatisticsWithWhile()
+        {
+            Statistics stats = new Statistics();
+            stats.Max = float.MinValue;
+            stats.Min = float.MaxValue;
+            stats.Average = 0;
+            int i = this.grade.Count-1;
+            while(i >= 0)
+            {
+                stats.Average += grade[i];
+                stats.Max = Math.Max(grade[i], stats.Max);
+                stats.Min = Math.Min(grade[i], stats.Min);
+                i--;
+            } 
+            stats.Average /= this.grade.Count;
+            stats.Score = grade.Sum();
+            return stats;
+        }
     }
 }
