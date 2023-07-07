@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp
+﻿using System.Diagnostics;
+
+namespace ChallengeApp
 {
     public class Employee
     {
@@ -61,15 +63,27 @@
 
         public void AddGrade(char grade)
         {
-            int result = (int)grade;
-            if (result >=0 && result <= 9)
-            {
-                AddGrade(result);
-            }
-            else
-            {
-                Console.WriteLine($"  Wpisana ocena: {grade} nie jest liczbą!");
-            }
+           switch(grade)
+           {
+                case 'A':
+                    AddGrade(100);
+                    break;
+                case 'B':
+                    AddGrade(80);
+                    break;
+                case 'C':
+                    AddGrade(60);
+                    break;
+                case 'D':
+                    AddGrade(40);
+                    break;
+                case 'E':
+                    AddGrade(20);
+                    break;
+                default: 
+                    Console.WriteLine("Wrong letter");
+                    break;
+           }
         }
 
         public Statistics GetStatistics()
@@ -86,7 +100,28 @@
                 stats.Min = Math.Min(grade,stats.Min);
             }
             stats.Average /= this.grade.Count;
-            stats.Score = grade.Sum();
+
+            switch(stats.Average)
+            {
+                case var a when a > 80:
+                    stats.AverageLetter = 'A';
+                    break;
+                case var a when a > 60:
+                    stats.AverageLetter = 'B';
+                    break;
+                case var a when a > 40:
+                    stats.AverageLetter = 'C';
+                    break;
+                case var a when a > 20:
+                    stats.AverageLetter = 'D';
+                    break;
+                default:
+                    stats.AverageLetter = 'E';
+                    break;
+            }
+            
+
+            
             return stats;
         }
     }

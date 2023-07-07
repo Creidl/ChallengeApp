@@ -5,6 +5,6 @@
         public float Max {get; set;}
         public float Min { get; set;}
         public float Average { get; set;}
-        public float Score { get; set;}
+        public char AverageLetter { get; set;}
     }
 }
