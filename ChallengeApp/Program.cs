@@ -7,16 +7,22 @@ Console.WriteLine("-----===============-------");
 
 while(true)
 {
-    Console.WriteLine("\n  Podaj ocenę.");
+    Console.WriteLine("  Podaj ocenę.");
     var input = Console.ReadLine();
     if(input == "q")
     {
         break;
     }
-    else
+    
+    try
     {
         user1.AddGrade(input);
     }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception cached: {e.Message}");
+    }
+    
 } 
 
 Statistics statistics = user1.GetStatistics(); 

@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
     public class Employee
     {
@@ -22,7 +20,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine($"  Wartość: {grade} jest spoza zakresu ocen!");
+                throw new Exception($"  Wartość: {grade} jest spoza zakresu ocen!");
             }
         }
 
@@ -34,7 +32,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("  Przekroczenie zasięgu FLOAT! ==> Wartość spoza zakresu ocen!");
+                throw new Exception("  Przekroczenie zasięgu FLOAT! ==> Wartość spoza zakresu ocen!");
             }
         }
         public void AddGrade(long grade)
@@ -45,7 +43,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("  Przekroczenie zasięgu FLOAT! ==> Wartość spoza zakresu ocen!");
+                throw new Exception("  Przekroczenie zasięgu FLOAT! ==> Wartość spoza zakresu ocen!");
             }
         }
 
@@ -57,7 +55,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine($"  Wpisana ocena: {grade} nie jest liczbą!");
+                throw new Exception($"  Wpisana ocena: {grade} nie jest liczbą!");
             }
         }
 
@@ -80,9 +78,8 @@ namespace ChallengeApp
                 case 'E':
                     AddGrade(20);
                     break;
-                default: 
-                    Console.WriteLine("Wrong letter");
-                    break;
+                default:
+                    throw new Exception("Wrong letter");
            }
         }
 
@@ -119,9 +116,6 @@ namespace ChallengeApp
                     stats.AverageLetter = 'E';
                     break;
             }
-            
-
-            
             return stats;
         }
     }
