@@ -1,8 +1,8 @@
 ﻿using ChallengeApp;
 
-Employee user1 = new Employee("Sam", "Serious");
+Supervisor user1 = new Supervisor();
 
-Console.WriteLine("Program do oceny pracownika");
+Console.WriteLine("Program do oceny Supervisora");
 Console.WriteLine("-----===============-------");
 
 while(true)
@@ -27,5 +27,4 @@ while(true)
 
 Statistics statistics = user1.GetStatistics(); 
 
-Console.WriteLine($"\n\timię: {user1.Name}\n\tnazwisko: {user1.Surname} ");
 Console.WriteLine($"\nMaksymalna ocena: {statistics.Max}; Minimalna ocena: {statistics.Min}; Średnia ocena: {statistics.AverageLetter}");

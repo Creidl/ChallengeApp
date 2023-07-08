@@ -1,6 +1,6 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee : Person
+    public class Employee : Person, IEmployee
     {
         private List<float> grade = new List<float>();
         
@@ -53,7 +53,7 @@
             }
             else
             {
-                throw new Exception($"  Wpisana ocena: {grade} nie jest liczbą!");
+                throw new Exception($"  wpisana ocena: {grade} nie jest liczbą!");
             }
         }
 
