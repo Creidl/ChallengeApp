@@ -1,15 +1,13 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
         private List<float> grade = new List<float>();
         
-        public Employee(string firstName = "Zombie", string lastName = "X")
+        public Employee(string name = "Zombie", string surname = "X", char sex= 'Z')
+        :base(name,surname,sex)
         {
-            Name = firstName;
-            Surname = lastName;
+            
         }
 
         public void AddGrade(float grade)
