@@ -16,6 +16,7 @@
                 {
                     writer.WriteLine(grade);
                 }
+                SetEvent();
             }
             else
             {
