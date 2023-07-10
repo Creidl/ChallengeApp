@@ -1,11 +1,13 @@
 ﻿using ChallengeApp;
 
-Supervisor user1 = new Supervisor();
+EmployeeInFile user1 = new EmployeeInFile("John","Malkovich");
 
-Console.WriteLine("Program do oceny Supervisora");
-Console.WriteLine("-----===============-------");
+Console.WriteLine("Program do oceny pracownika");
+Console.WriteLine("-----=================-----");
 
-while(true)
+user1.AddGrade(33);
+//user1.AddGrade(21);
+/*while(true)
 {
     Console.WriteLine("  Podaj ocenę.");
     var input = Console.ReadLine();
@@ -24,7 +26,7 @@ while(true)
     }
     
 } 
-
+*/
 Statistics statistics = user1.GetStatistics(); 
 
 Console.WriteLine($"\nMaksymalna ocena: {statistics.Max}; Minimalna ocena: {statistics.Min}; Średnia ocena: {statistics.AverageLetter}");
