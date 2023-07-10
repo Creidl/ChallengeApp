@@ -3,7 +3,6 @@
     public class EmployeeInFile : EmployeeBase
     {
         private const string fileName = "grade.txt";
-        private List<float> grades = new List<float>();
 
         public EmployeeInFile(string name, string surname) : base(name, surname)
         {
@@ -83,13 +82,9 @@
             }
         }
 
-        public override Statistics GetStatistics()
+        private List<float> GetGradesFile(string fileName)
         {
-            Statistics stats = new Statistics();
-            stats.Max = float.MinValue;
-            stats.Min = float.MaxValue;
-            stats.Average = 0;
-
+            List<float> result = new List<float>();
             if (File.Exists(fileName))
             {
                 using (var reader = File.OpenText(fileName))
@@ -97,11 +92,24 @@
                     var line = reader.ReadLine();
                     while (line != null)
                     {
-                        AddGrade(line);
+                        result.Add(float.Parse(line));
                         line = reader.ReadLine();
                     }
                 }
+            }
+            return result;
+        }
 
+        public override Statistics GetStatistics()
+        {
+            Statistics stats = new Statistics();
+            List<float> grades = GetGradesFile(fileName);
+            stats.Max = float.MinValue;
+            stats.Min = float.MaxValue;
+            stats.Average = 0;
+
+            if (grades.Count != 0)
+            {
                 foreach (var grade in grades)
                 {
                     stats.Average += grade;

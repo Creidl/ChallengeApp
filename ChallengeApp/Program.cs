@@ -5,8 +5,8 @@ EmployeeInFile user1 = new EmployeeInFile("John","Malkovich");
 Console.WriteLine("Program do oceny pracownika");
 Console.WriteLine("-----=================-----");
 
-user1.AddGrade(33);
-//user1.AddGrade(21);
+user1.AddGrade(35);
+user1.AddGrade(21);
 /*while(true)
 {
     Console.WriteLine("  Podaj ocenę.");
