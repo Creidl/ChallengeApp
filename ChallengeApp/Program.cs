@@ -6,11 +6,6 @@ EmployeeInFile user2 = new EmployeeInFile("Sylwester", "Stalone");
 Console.WriteLine("Program do oceny pracownika");
 Console.WriteLine("-----=================-----");
 
-void EmployeeGradeAdded(object sender, EventArgs args)
-{
-    Console.WriteLine("dodano ocenę");
-}
-
 user1.GradeAdded += EmployeeGradeAdded;
 user2.GradeAdded += EmployeeGradeAdded;
 
@@ -41,3 +36,8 @@ Console.WriteLine("\n\tPróba dodania oceny do drugiego usera");
 user2.AddGrade(99);
 statistics = user2.GetStatistics();
 Console.WriteLine($"\nMaksymalna ocena: {statistics.Max}; Minimalna ocena: {statistics.Min}; Średnia ocena: {statistics.AverageLetter}");
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("dodano ocenę");
+}
