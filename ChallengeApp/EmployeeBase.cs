@@ -10,15 +10,15 @@
 
         public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-        public event GradeAddedDelegate GradeAdded;
+        public abstract event GradeAddedDelegate GradeAdded;
 
-        protected void SetEvent()
-        {
-            if (GradeAdded != null)
-            {
-                GradeAdded(this, new EventArgs());
-            }
-        }
+        //protected void SetEvent()
+        //{
+        //    if (GradeAdded != null)
+        //    {
+        //        GradeAdded(this, new EventArgs());
+        //    }
+        //}
 
         public string Name { get; private set; }
 
